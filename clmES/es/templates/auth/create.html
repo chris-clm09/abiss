@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    
+<b>With Great Power Comes Great Responsibility :</b>
+
+{% if error %}<p><i>{{ error }}</i></p>{% endif %}
+
+<form action="/es/auth/create/" method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Add This Guy" />
+<input type="submit" value="Never Mind" name="done" onclick="parent.location='/es/stuff/'" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+
+{% endblock %}

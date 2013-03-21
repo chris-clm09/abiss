@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 id="page title">{{month}}</h1>
+
+{% for d in days %}
+    
+    <h2 id="border">{{d}}</h2>
+    
+    <table border="1">
+        
+        <tr id="table headers">
+            <th>clm</th>
+            {% for kdMmd, vdMmd in mDaysToMntDays.items %}
+                {% ifequal kdMmd d %}
+                    {% for md in vdMmd%}
+                        <th>{{md}}</th>
+                    {% endfor%}
+                {% endifequal%}
+            {% endfor%}
+        </tr>
+        
+        
+        {% for kd, vrs in mDaysToRows.items %}
+            {% ifequal kd d%}
+                {% for rv in vrs%}
+                    <tr id="table row">
+                    {% for e in rv%}
+                        {% if ":" in e %}
+                            <td>{{e}}</td>       
+                        {% else%}
+                            {% if e > 0 %}
+                                <td align="center">
+                                    {% for k, v in mAptsIdToApts.items %}
+                                        {% ifequal k e%}
+                                                <a style="text-decoration:none" href="/es/stuff/edit/{{e}}/">{{v}}</a>
+                                        {% endifequal%}
+                                    {% endfor%}
+                                </td>
+                            {% else%}
+                                <td align="center">
+                                    <a style="color: #CC0000; text-decoration:none" href="/es/stuff/add/{{e}}/">-add-</a>
+                                </td>
+                            {%endif%}
+                        {% endif%}
+                    {% endfor%}
+                    </tr>
+                {% endfor%}
+            {% endifequal%}
+        {% endfor%}
+    </table>
+
+{% endfor%}
+
+{% endblock %}

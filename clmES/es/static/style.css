@@ -1,0 +1,103 @@
+#body {
+    margin-left: 50px;
+}
+
+#title {
+    background:#302b1d;
+    padding: 10px;
+    color: white;
+    font-size: 1.5em;
+    text-align: center
+}
+
+#subtitle {
+    background:#302b1d;
+    color: white;
+    font-size: 1.1em;
+    text-align: center
+}
+
+#logo {
+    background:#302b1d;
+    padding: 5px;
+    color: white;
+    text-align: right;
+}
+
+#menu {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-bottom: 10px solid #63605A;
+    alignment-adjust: central;
+}
+
+#menu ul /* Primary and secondary links */ {
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
+  alignment-adjust: central;
+}
+
+#menu li /* A simple method to get navigation links to appear in one line. */ {
+/*  float: left; /* LTR */
+    display: inline;
+    padding: 0 20px 0 0; /* LTR */
+    color: #63605A;
+    font-weight: bold;
+    alignment-adjust: central;
+}
+
+
+#menu li a {
+    text-decoration: none;
+    color: #63605A;
+}
+
+#menu li a:hover {
+    color: #63605A;
+    border-bottom: 2px solid #423638;
+}
+#border {
+    border-bottom: 5px solid #63605A;
+}
+
+#content {
+    padding: 10px;
+}
+#right {
+    position: fixed;
+    left: 390px;
+    top: 200px;
+}
+
+#left {
+    position: fixed;
+    left: 50px;
+    top: 200px;
+}
+#bottomCenter {
+    position: fixed;
+    left: 269px;
+    top: 434px;
+}
+#date {
+    position: fixed;
+    top: 182px;
+    left: 104px;
+    font-size: 125%;
+}
+#time {
+    position: fixed;
+    top: 211px;
+    left: 113px;
+    font-size: 125%;
+}
+#addForm {
+    position: fixed;
+    top: 228px;
+}
+#addLinks {
+    color: #CC0000;
+}

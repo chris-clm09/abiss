@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="header">
+    <h1>Edit Daily Times</h1>
+</div>
+<div id="left">
+    <h2>Days to Display:</h2>
+    <table>
+        {% for day in days%}
+            <tr>
+            {% for k, displayLink in links.items%}
+                {% ifequal k day %}
+                    <td>{{day}}</td>
+                    {% if displayLink > 0 %}
+                    <td><a style="text-decoration:none" href="/es/stuff/dday/{{displayLink}}/">DISPLAY</a></td>    
+                    {% else%}
+                    <td><a style="color: #CC0000; text-decoration:none" href="/es/stuff/ddday/{{displayLink}}/">DON'T DISPLAY</a></td>    
+                    {% endif%}
+                {% endifequal%}
+            {% endfor%}
+            </tr>
+        {% endfor%}
+    </table>
+</div>
+<div id="right">
+    <h2>Times to Display:</h2>
+    <table>
+        <tr><td>SUNDAY</td><td>   <a style="text-decoration:none" href="/es/stuff/setDayTimes/0/">SET TIMES</a></td></tr>
+        <tr><td>MONDAY</td><td>   <a style="text-decoration:none" href="/es/stuff/setDayTimes/1/">SET TIMES</a></td></tr>
+        <tr><td>TUESDAY</td><td>  <a style="text-decoration:none" href="/es/stuff/setDayTimes/2/">SET TIMES</a></td></tr>
+        <tr><td>WEDNESDAY</td><td><a style="text-decoration:none" href="/es/stuff/setDayTimes/3/">SET TIMES</a></td></tr>
+        <tr><td>THURSDAY</td><td> <a style="text-decoration:none" href="/es/stuff/setDayTimes/4/">SET TIMES</a></td></tr>
+        <tr><td>FRIDAY</td><td>   <a style="text-decoration:none" href="/es/stuff/setDayTimes/5/">SET TIMES</a></td></tr>
+        <tr><td>SATURDAY</td><td> <a style="text-decoration:none" href="/es/stuff/setDayTimes/6/">SET TIMES</a></td></tr>
+    </table>
+</div>
+<div id="bottomCenter">
+    <input type="submit" value="Done" name="done" onclick="parent.location='/es/stuff/'" />
+</div>
+{% endblock %}

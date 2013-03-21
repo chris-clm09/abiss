@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block headextra %}
+<script type="text/javascript">document.getElementById("id_appointment").focus();</script>
+    {% endblock %}
+{% block content %}
+
+<b>Add New Appointment:</b>
+
+<div id="date">{{date}}</div>
+<div id="time">{{time}}</div>
+
+
+{% if error %}<p><i>{{ error }}</i></p>{% endif %}
+
+<div id="addForm">
+    <form id="fadd" action="/es/stuff/add/{{code}}/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Add" />
+    <input type="submit" name="cancel" value="Cancel" />
+    </form>
+</div>
+{% endblock %}

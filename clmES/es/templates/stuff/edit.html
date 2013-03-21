@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<b>Edit Appointment:</b>
+
+<div id="date">{{date}}</div>
+<div id="time">{{time}}</div>
+
+{% if error %}<p><i>{{ error }}</i></p>{% endif %}
+
+<div id="addForm">
+    <form action="/es/stuff/edit/{{id}}/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="mod" value="Modify"/>
+    <input type="submit" name="rmv" value="Remove" />
+    <input type="submit" name="cancel" value="Cancel" />
+    </form>
+</div>
+
+{% endblock %}

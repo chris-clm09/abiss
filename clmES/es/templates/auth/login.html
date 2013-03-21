@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<b>Login:</b>
+
+{% if error %}<p><i>{{ error }}</i></p>{% endif %}
+
+<form action="/es/auth/login/" method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="logIn" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+{% endblock %}

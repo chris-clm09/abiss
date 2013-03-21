@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Set {{day}}'s Times</h1>
+
+<table border="1">
+    {% for row in times %}
+        <tr>
+        {% for e in row%}
+            <td>
+                {% if ":" in e %}
+                    {{e}}
+                {% else%}
+                    {% if e > 0 %}
+                        <a style="text-decoration:none" href="/es/stuff/dtime/{{e}}/{{dayoffset}}/">DISPLAY</a>
+                    {% else%}
+                        <a style="color: #CC0000; text-decoration:none" href="/es/stuff/ddtime/{{e}}/{{dayoffset}}/">DON'T DISPLAY</a>
+                    {% endif%}
+                {% endif%}    
+            </td>
+        {% endfor%}
+        </tr>
+    {% endfor%}
+</table>
+<input type="submit" value="Done" name="done" onclick="parent.location='/es/stuff/editDailyTimes/'" />
+{% endblock %}
